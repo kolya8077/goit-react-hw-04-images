@@ -42,7 +42,7 @@ export function App() {
             tags,
           };
         });
-
+        console.log(data)
         setImages(images => [...images, ...data]);
         setTotal(totalHits);
 
@@ -62,8 +62,10 @@ export function App() {
       .finally(() => setIsLoading(false));
   };
 
-  const handleSearch = query => {
-    setQuery(query);
+  const handleSearch = e => {
+    if (e === query) return 
+    console.log(e);
+    setQuery(e);
     setPage(1);
     setImages([]);
     setError(null);
